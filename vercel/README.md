@@ -40,3 +40,11 @@ https://vercel.com/docs/concepts/deployments/overview
 Deploy your application to Vercel and share with the game leader the URL where your bot will reply.
 E.g. `https://team-r0cket.vercel.app/api`
 
+### Environment Variables
+
+You need to set your environment variables via the UI: https://vercel.com/docs/concepts/projects/environment-variables  
+You may need to re-deploy after setting your environment variables!
+
+### Functions
+
+To optimize the response time of your functions, change the functions region in your project settings.
