@@ -21,7 +21,7 @@ const corsOptions = {
 server.use(cors())
 server.use(express.json())
 
-server.post('/', (request, response) => {
+server.post('/api', (request, response) => {
     app(request, response)
 })
 
