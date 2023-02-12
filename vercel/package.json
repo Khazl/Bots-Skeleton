@@ -5,6 +5,7 @@
   "main": "api/index.js",
   "scripts": {
     "test": "jest ./tests/*.spec.js",
+    "build": "netlify-lambda build api",
     "dev": "nodemon api/index.js"
   },
   "author": "",
@@ -16,6 +17,7 @@
   },
   "devDependencies": {
     "jest": "^29.4.2",
+    "netlify-lambda": "^2.0.15",
     "nodemon": "^2.0.20",
     "supertest": "^6.3.3"
   }
