@@ -5,8 +5,8 @@
     "main": "api/index.js",
     "scripts": {
         "test": "jest ./tests/*.spec.js",
-        "build": "netlify-lambda build api",
-        "dev": "nodemon api/index.js"
+        "dev": "nodemon api/index.js",
+        "pre-commit": "npx prettier --write . && npm run test"
     },
     "author": "",
     "license": "ISC",
