@@ -1,21 +1,46 @@
-const request = require('supertest')
-const app = require('./../api/app')
+const request = require("supertest")
+const app = require("./../api/app")
 
-describe('POST /api', () => {
+const requestPayload = {
+    winner: null,
+    turn: "x",
+    last_turn: {
+        team: "o",
+        turn: "place",
+        column: 0,
+        row: 0,
+    },
+    field: [],
+}
 
-    test('Team secret should be in header', async () => {
-        const response = await request(app).post('/api')
+describe("POST /api", () => {
+    test("If first turn, place mark in the middle", async () => {
+        requestPayload.field = [
+            [null, null, null],
+            [null, null, null],
+            [null, null, null],
+        ]
+        const response = await request(app).post("/api").send(requestPayload)
 
-        expect(response.statusCode).toBe(200);
-        expect(response.header['x-team-secret']).toBe(process.env.TEAM_SECRET);
+        expect(response.statusCode).toBe(200)
+        expect(response.body).toEqual({
+            turn: "place",
+            column: 1,
+            row: 1,
+        })
     })
 
-    test('Should response with Hello Bob', async () => {
-        const name = 'Bob'
-        const response = await request(app).post('/api').send({'name': name})
+    test("If it is not the first turn, skip the round", async () => {
+        requestPayload.field = [
+            [null, null, null],
+            [null, "x", null],
+            [null, null, null],
+        ]
+        const response = await request(app).post("/api").send(requestPayload)
 
-        expect(response.statusCode).toBe(200);
-        expect(response.text).toBe(`Hello ${name}`);
+        expect(response.statusCode).toBe(200)
+        expect(response.body).toEqual({
+            turn: "skip",
+        })
     })
-
 })

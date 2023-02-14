@@ -1,24 +1,25 @@
 {
-  "name": "vercel",
-  "version": "1.0.0",
-  "description": "",
-  "main": "api/index.js",
-  "scripts": {
-    "test": "jest ./tests/*.spec.js",
-    "build": "netlify-lambda build api",
-    "dev": "nodemon api/index.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2"
-  },
-  "devDependencies": {
-    "jest": "^29.4.2",
-    "netlify-lambda": "^2.0.15",
-    "nodemon": "^2.0.20",
-    "supertest": "^6.3.3"
-  }
+    "name": "vercel",
+    "version": "1.0.0",
+    "description": "",
+    "main": "api/index.js",
+    "scripts": {
+        "test": "jest ./tests/*.spec.js",
+        "build": "netlify-lambda build api",
+        "dev": "nodemon api/index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2"
+    },
+    "devDependencies": {
+        "jest": "^29.4.2",
+        "netlify-lambda": "^2.0.15",
+        "nodemon": "^2.0.20",
+        "prettier": "2.8.4",
+        "supertest": "^6.3.3"
+    }
 }

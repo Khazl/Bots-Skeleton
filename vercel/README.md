@@ -1,17 +1,21 @@
 ## Setup
 
 First you need to install all dependencies:
+
 ```shell
 npm install
 ```
 
 To start the dev server, you need to run:
+
 ```shell
 npm run dev
 ```
+
 The server should be available via: `http://localhost:3000/`
 
 Now check, if the predefined route is working. You should get `Hello Bob` as response:
+
 ```shell
 curl -d '{"name":"Bob"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api
 ```
@@ -25,13 +29,22 @@ Your team secret is sent with every response via the header and is important to 
 
 For testing, `jest` and `supertest` are used.
 
-- Supertest: https://github.com/ladjs/supertest#readme
-- Jest: https://jestjs.io/docs/getting-started
+-   Supertest: https://github.com/ladjs/supertest#readme
+-   Jest: https://jestjs.io/docs/getting-started
 
 To execute your tests, run:
+
 ```shell
 npm run test
 ```
+
+### READY
+
+If your bot is ready for requests, change the environment variable `READY`
+from `false` to `true`. You may need to restart the express server to update this.
+
+You can check the `/api/ready` endpoint to validate, if your bot is ready or not.  
+It will respond with `200: OK` or `503: NO`.
 
 ## Vercel
 
