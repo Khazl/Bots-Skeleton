@@ -27,11 +27,11 @@ describe("CORE", () => {
         })
     })
 
-    describe("POST /api/ready", () => {
+    describe("GET /api", () => {
         test("Should respond with 503 if not ready", async () => {
             process.env.READY = "false"
 
-            const response = await request(app).get("/api/ready")
+            const response = await request(app).get("/api")
 
             expect(response.statusCode).toBe(503)
         })
@@ -39,7 +39,7 @@ describe("CORE", () => {
         test("Should respond with 200 if ready", async () => {
             process.env.READY = "true"
 
-            const response = await request(app).get("/api/ready")
+            const response = await request(app).get("/api")
 
             expect(response.statusCode).toBe(200)
         })

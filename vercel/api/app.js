@@ -8,7 +8,7 @@ const server = express()
 server.use(cors())
 server.use(express.json())
 
-server.get("/api/ready", (request, response) => {
+server.get("/api", (request, response) => {
     if (process.env.READY === "true") {
         response.status(200).send("OK")
     } else {
